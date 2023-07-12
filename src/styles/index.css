@@ -1,3 +1,15 @@
 /* 
     General Styles
 */
+body{
+    background-color: black;
+}
+nav {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    background-color: #ffdf80;
+}
+
+.color-white{
+    color: white;
+}

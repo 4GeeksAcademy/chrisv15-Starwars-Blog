@@ -1,0 +1,8 @@
+.card{
+    width: 18rem;
+    overflow: hidden;
+}
+
+img.card {
+    min-width: 21rem;
+}
