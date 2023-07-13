@@ -6,3 +6,9 @@
 img.card {
     min-width: 21rem;
 }
+
+.nowrap{
+    flex-wrap: nowrap !important;
+    width: 100vw;
+}
+
