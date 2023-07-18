@@ -13,3 +13,7 @@ nav {
 .color-white{
     color: white;
 }
+
+.card-img-top{
+    background-image: url(https://starwars-visualguide.com/assets/img/big-placeholder.jpg);
+}

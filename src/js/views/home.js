@@ -1,19 +1,36 @@
 import React, { useContext } from "react";
 import "../../styles/home.css";
 import ItemCard from "../component/itemCard.js"
+import PlanetCard from "../component/planetCard.js"
+import VehicleCard from "../component/vehicleCard.js"
+
 import { Context } from "../store/appContext";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	let characters = store.characters || [];
-	console.log(characters);
+	let planets = store.planets || [];
+	let vehicles = store.vehicles || [];
+	console.log(planets);
 	return (
 		<div className="mt-5">
-			<h1 className="color-white">Characters</h1>
-			<div className="container text-center">
+			<div className="container">
+				<h1 className="color-white">Characters</h1>
 				<div className="row nowrap overflow-scroll">
 					{characters.map((character, index) => (
-						<ItemCard key={index} character={character}/>
+						<ItemCard key={index} character={character} />
+					))}
+				</div>
+				<h1 className="color-white">Planets</h1>
+				<div className="row nowrap overflow-scroll">
+					{planets.map((planet, index) => (
+						<PlanetCard key={index} planet={planet} />
+					))}
+				</div>
+				<h1 className="color-white">Vehicles</h1>
+				<div className="row nowrap overflow-scroll">
+					{vehicles.map((vehicle, index) => (
+						<VehicleCard key={index} vehicle={vehicle} />
 					))}
 				</div>
 			</div>

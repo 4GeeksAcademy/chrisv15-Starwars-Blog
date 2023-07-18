@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	let favorites = store.favorites || [];
 	return (
 		<nav className="navbar navbar-light">
 			<Link to="/">
@@ -19,11 +22,16 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<div className="dropdown">
 					<button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-						Favorite <span className="btn-secondary">0</span>
+						Favorite <span className="btn-secondary">{favorites.lenght}</span>
 					</button>
 					<ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-						<li><a className="dropdown-item active" href="#">Leia Skywalker</a></li>
-						<li><a className="dropdown-item" href="#">Luke Skywalker</a></li>
+					
+					{store.favorites.map((favorite, index) => (
+						<li>
+							<a className="dropdown-item active" href="#">{favorite}</a>
+						</li>
+
+					))}
 					</ul>
 				</div>
 			</div>

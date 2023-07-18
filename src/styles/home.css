@@ -12,3 +12,10 @@ img.card {
     width: 100vw;
 }
 
+.container{
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 1rem;
+
+}
+
