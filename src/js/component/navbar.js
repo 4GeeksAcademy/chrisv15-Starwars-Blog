@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	let favorites = store.favorites || [];
+	console.log(store.favorites);
 	return (
 		<nav className="navbar navbar-light">
 			<Link to="/">
@@ -22,7 +23,7 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<div className="dropdown">
 					<button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-						Favorite <span className="btn-secondary">{favorites.lenght}</span>
+						Favorite<span className="btn-secondary">{favorites.lenght}</span>
 					</button>
 					<ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
 					

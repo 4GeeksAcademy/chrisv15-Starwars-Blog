@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addToFavorite: (name) => {
 				setStore({ favorites: getStore().favorites.push(name) })
+				this.dispatch('store.setStore', favorites);
 			},
 			removeFavorite: (name) => {
 				setStore({ favorites: getStore().favorites.filter((element) => element != name) })

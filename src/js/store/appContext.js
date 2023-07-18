@@ -29,6 +29,12 @@ const injectContext = PassedComponent => {
 			state.actions.loadPlanets();
 			state.actions.loadvehicles();
 		}, []);
+		
+		const actions = {
+			addToFavorite: (name) => {
+				state.actions.addToFavorite(name);
+			}
+		}
 
 
 
@@ -36,7 +42,7 @@ const injectContext = PassedComponent => {
 		// the context will now have a getStore, getActions and setStore functions available, because they were declared
 		// on the state of this component
 		return (
-			<Context.Provider value={{ store: state.store }}>
+			<Context.Provider value={{ store: state.store, actions }}>
 				<PassedComponent {...props} />
 			</Context.Provider>
 		);
