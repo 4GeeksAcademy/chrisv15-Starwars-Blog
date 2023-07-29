@@ -16,26 +16,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			addToFavorite: (name) => {
-				setStore({ favorites: getStore().favorites.push(name) })
-				this.dispatch('store.setStore', favorites);
+			loadFavorites: () => {
+				if (localStorage.getItem("favorites")) {
+					setStore({ favorites: JSON.parse(localStorage.getItem("favorites")) })
+				}
 			},
-			removeFavorite: (name) => {
-				setStore({ favorites: getStore().favorites.filter((element) => element != name) })
+			addToFavorite: (item) => {
+				setStore({ favorites: [...getStore().favorites, item]});
+				localStorage.setItem("favorites", JSON.stringify(getStore().favorites))
+			},
+			removeFavorite: (item) => {
+				setStore({ favorites: getStore().favorites.filter((element) => element.name != item.name) })
+				localStorage.setItem("favorites", JSON.stringify(getStore().favorites))
 			},
 			loadCharacters: () => {
 				if (localStorage.getItem("characters")) {
 					setStore({ characters: JSON.parse(localStorage.getItem("characters")) })
 				}
 				else {
-					let characters = [];
+					let charactersAux = [];
 					fetch("https://www.swapi.tech/api/people/")
 						.then(res => res.json())
 						.then(
 							data => {
 								console.log(data)
 								for (let i = 1; i <= data.total_records - 75; i++) {
-									getActions().loadCharacterInfo(i, characters)
+									getActions().loadCharacterInfo(i, charactersAux)
 								}
 							}
 						)
@@ -63,14 +69,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				else {
 
-					let planets = [];
+					let planetsAux = [];
 					fetch("https://www.swapi.tech/api/planets/")
 						.then(res => res.json())
 						.then(
 							data => {
 								console.log(data)
 								for (let i = 1; i <= data.total_records - 55; i++) {
-									getActions().loadPlanetInfo(i, planets)
+									getActions().loadPlanetInfo(i, planetsAux)
 								}
 							}
 						)
@@ -99,14 +105,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				else {
 
-					let vehicles = [];
+					let vehiclesAux = [];
 					fetch("https://www.swapi.tech/api/vehicles")
 						.then(res => res.json())
 						.then(
 							data => {
 								console.log(data)
 								for (let i = 1; i <= data.total_records - 10; i++) {
-									getActions().loadVehicleInfo(i, vehicles)
+									getActions().loadVehicleInfo(i, vehiclesAux)
 								}
 							}
 						)

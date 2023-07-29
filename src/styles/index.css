@@ -17,3 +17,23 @@ nav {
 .card-img-top{
     background-image: url(https://starwars-visualguide.com/assets/img/big-placeholder.jpg);
 }
+
+.btn-warning:hover{
+    background-color: #281e02;
+    color: white;
+}
+
+.see-more{
+    background-color: #281e02;
+    color: white;
+    border-color: #ffdf80;
+}
+.see-more:hover{
+    background-color: #5f4600;
+    color: white;
+    border-color: #ffdf80;
+}
+
+.dropdown-menu{
+    width: max-content;
+}

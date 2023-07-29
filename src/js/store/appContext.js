@@ -28,11 +28,15 @@ const injectContext = PassedComponent => {
 			state.actions.loadCharacters();
 			state.actions.loadPlanets();
 			state.actions.loadvehicles();
+			state.actions.loadFavorites();
 		}, []);
 		
 		const actions = {
-			addToFavorite: (name) => {
-				state.actions.addToFavorite(name);
+			addToFavorite: (item) => {
+				state.actions.addToFavorite(item);
+			},
+			removeFavorite: (item) => {
+				state.actions.removeFavorite(item);
 			}
 		}
 

@@ -15,19 +15,19 @@ export const Home = () => {
 	return (
 		<div className="mt-5">
 			<div className="container">
-				<h1 className="color-white">Characters</h1>
+				<h1 className="color-white mt-2">Characters</h1>
 				<div className="row nowrap overflow-scroll">
 					{characters.map((character, index) => (
 						<ItemCard key={index} character={character} />
 					))}
 				</div>
-				<h1 className="color-white">Planets</h1>
+				<h1 className="color-white mt-5">Planets</h1>
 				<div className="row nowrap overflow-scroll">
 					{planets.map((planet, index) => (
 						<PlanetCard key={index} planet={planet} />
 					))}
 				</div>
-				<h1 className="color-white">Vehicles</h1>
+				<h1 className="color-white mt-5">Vehicles</h1>
 				<div className="row nowrap overflow-scroll">
 					{vehicles.map((vehicle, index) => (
 						<VehicleCard key={index} vehicle={vehicle} />
